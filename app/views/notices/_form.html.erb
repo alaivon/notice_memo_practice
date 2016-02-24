@@ -1,0 +1,11 @@
+<%= simple_form_for @notice do |f| %>
+	<div class="form-input">
+		<%= f.input :location  %>
+		<%= f.input :event %>
+		<%= f.input :event_time, label: "When" %>
+		<%= f.input :postscript, label: "P.S" %>
+	</div>
+
+		<%= f.submit "Create Memo" %>
+
+<% end %>
