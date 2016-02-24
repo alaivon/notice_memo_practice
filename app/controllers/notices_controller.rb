@@ -5,6 +5,9 @@ class NoticesController < ApplicationController
 
 	def index
 		@notices = current_user.notices.all
+		@notices_done = current_user.notices.where(is_completed: true)
+		@notices_undo = current_user.notices.where(is_completed: false)
+			
 	end
 
 	def show
@@ -39,6 +42,11 @@ class NoticesController < ApplicationController
 	def destroy
 		@notice.destroy
 		redirect_to notices_path, notice: "Deleted Successfully!"
+	end
+
+	def completed
+		@notice.done
+		redirect_to :back, notice: "#{@notice.event} is completed!"
 	end
 
 	private

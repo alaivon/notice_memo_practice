@@ -1,28 +1,34 @@
 <table class="table table-bordered">
 	<thead>
 		<tr>
+			<th>Status</th>
 			<th>Event</th>
-			<th>Location</th>
 			<th>When</th>
+			<th>Location</th>
 			<th>P.S</th>
 			<th colspan="2">Options</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
+			<td><%= link_to "Completed", completed_notice_path(@notice), method: :post  %></td>
 			<td><%= @notice.event %></td>
+			<td><%= @notice.event_time.to_s(:long) %></td>
 			<td><%= @notice.location %></td>
-			<td><%= @notice.event_time %></td>
 			<td><%= @notice.postscript %></td>
-			<td>
-				<%= link_to edit_notice_path(@notice) do  %>
-					<i class="fa fa-pencil"></i>
-				<% end %>
-			</td>
-			<td>
-				<%= link_to notice_path(@notice), method: :delete, data: {confirm: "Are you sure?"} do %> 
-					<i class="fa fa-times"></i>
-				<% end %>
+			<% if @notice.is_completed? %>
+				<td>Done!</td>
+			<% else %>
+				<td>
+					<%= link_to edit_notice_path(@notice) do  %>
+						<i class="fa fa-pencil"></i>
+					<% end %>
+				</td>
+				<td>
+					<%= link_to notice_path(@notice), method: :delete, data: {confirm: "Are you sure?"} do %> 
+						<i class="fa fa-times"></i>
+					<% end %>
+			<% end %>
 			</td>
 		</tr>
 	</tbody>
