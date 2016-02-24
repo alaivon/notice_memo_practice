@@ -14,7 +14,16 @@
 			<td><%= @notice.location %></td>
 			<td><%= @notice.event_time %></td>
 			<td><%= @notice.postscript %></td>
-			<td></td>
+			<td>
+				<%= link_to edit_notice_path(@notice) do  %>
+					<i class="fa fa-pencil"></i>
+				<% end %>
+			</td>
+			<td>
+				<%= link_to notice_path(@notice), method: :delete, data: {confirm: "Are you sure?"} do %> 
+					<i class="fa fa-times"></i>
+				<% end %>
+			</td>
 		</tr>
 	</tbody>
 </table>

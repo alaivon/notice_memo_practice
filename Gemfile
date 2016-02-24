@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 ruby '2.2.1'
 
 
+
+gem "font-awesome-rails"
 gem 'simple_form'
 gem 'awesome_rails_console'
 gem 'bootstrap-sass'
