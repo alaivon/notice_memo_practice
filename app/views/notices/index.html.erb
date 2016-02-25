@@ -1,17 +1,9 @@
 <h1>Undo Memo</h1>
 <ul>
 	<% @notices_undo.each do |notice| %>
-		<li><%= link_to notice.event, notice  %></li>
+		<li>
+			<h3 data-toggle="modal" data-target="#myModal"><%= notice.event %></h3>
+			<%= render 'notice_modal', notice: notice %>
+		</li>
 	<% end %>
 </ul>
-
-
-<h1>Completed Memo</h1>
-
-<ul>
-	<% @notices_done.each do |notice| %>
-	<li><%= link_to notice.event, notice  %></li>
-	<% end %>
-</ul>
-
-

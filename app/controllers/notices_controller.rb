@@ -10,9 +10,7 @@ class NoticesController < ApplicationController
 			
 	end
 
-	def show
-		
-	end
+	
 
 	def new
 		@notice = current_user.notices.new
@@ -21,7 +19,7 @@ class NoticesController < ApplicationController
 	def create
 		@notice = current_user.notices.new(notice_params)
 		if @notice.save
-			redirect_to @notice, notice: "Saved Successfully!"
+			redirect_to notices_path, notice: "Saved Successfully!"
 		else
 			render :new
 		end
@@ -33,7 +31,7 @@ class NoticesController < ApplicationController
 
 	def update
 		if @notice.update(notice_params)
-			redirect_to @notice, notice: "Updated Successfully!"
+			redirect_to notices_path, notice: "Updated Successfully!"
 		else
 			render :edit
 		end
