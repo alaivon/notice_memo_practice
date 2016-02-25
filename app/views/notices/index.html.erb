@@ -1,32 +1,42 @@
-<div class="row">
-	<div class="col-md-10 col-sm-12 col-md-offset-3">
-		<div class="memo_index">
-			<h1>Undo Memo</h1>
-			<ul>	
-				<li id="list_memo">
-						<h3 data-toggle="modal" data-target="#myModal">
-							You have <%= pluralize(@notices_undo.size, "event") %> to do!
+<% if current_user.notices.blank? %>
+	<div class="container">
+  	<div class="jumbotron" style="text-align: center;">
+	    <h1>Add your Memo to remind you something to do </h1> <br> 
+	    <h4>This is an useful app I practice and you can add your memo to test this app</h4>  <br>
+	    <%= link_to "New Memo", new_notice_path, class: "btn btn-primary btn-lg"  %>
+	  </div>	
+	</div>
+<% else %>
+	<div class="row">
+		<div class="col-md-10 col-sm-12 col-md-offset-3">
+			<div class="memo_index">
+				<h1>Undo Memo</h1>
+				<ul>	
+					<li id="list_memo">
+							<h3 data-toggle="modal" data-target="#myModal">
+								You have <%= pluralize(@notices_undo.size, "event") %> to do!
+							</h3>
+							<%= render 'notice_modal' %>
+						</li>
+					
+
+				</ul>		
+			</div>
+
+			<hr>		
+		</div>
+			<div class="col-md-10 col-sm-12 col-md-offset-3">
+				<div class="memo_completed">
+					<h1>Show your Memo completed!</h1>	
+					<li id="list_memo">
+						<h3 data-toggle="modal" data-target="#myModal1">
+						<%= pluralize(@notices_done.size, "event") %> you have already completed!
 						</h3>
-						<%= render 'notice_modal' %>
+						<%= render 'event_completed' %>
 					</li>
 				
-
-			</ul>		
-		</div>
-
-		<hr>		
+				</div>
+					
+				</div>
 	</div>
-		<div class="col-md-10 col-sm-12 col-md-offset-3">
-			<div class="memo_completed">
-				<h1>Show your Memo completed!</h1>	
-				<li id="list_memo">
-					<h3 data-toggle="modal" data-target="#myModal1">
-					<%= pluralize(@notices_done.size, "event") %> you have already completed!
-					</h3>
-					<%= render 'event_completed' %>
-				</li>
-			
-			</div>
-				
-			</div>
-</div>
+<% end %>

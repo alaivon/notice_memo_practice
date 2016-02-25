@@ -1,7 +1,7 @@
 class NoticesController < ApplicationController
 
-	before_action :find_notice, except: [:index, :new, :create]
-	before_action :authenticate_user!
+	before_action :find_notice, except: [:index, :new, :create, :welcome]
+	before_action :authenticate_user!, except: :welcome
 
 	def index
 		@notices = current_user.notices.all
