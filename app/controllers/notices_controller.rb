@@ -10,8 +10,6 @@ class NoticesController < ApplicationController
 			
 	end
 
-	
-
 	def new
 		@notice = current_user.notices.new
 	end

@@ -1,5 +1,5 @@
 <div class="container">
-  		<div class="modal fade" id="myModal" role="dialog">
+  		<div class="modal fade" id="myModal1" role="dialog">
     		<div class="modal-dialog">
           <!-- Modal content-->
       		<div class="modal-content">
@@ -11,7 +11,6 @@
 	          		<table class="table table-bordered">
 	          			<thead>
 										<tr>
-											<th>Action</th>
 											<th>Event</th>
 											<th>When</th>
 											<th>Location</th>
@@ -20,32 +19,13 @@
 										</tr>
 									</thead>
 									<tbody>
-										<% @notices_undo.each do |notice| %>
+										<% @notices_done.each do |notice| %>
 										<tr>
-
-											<td>
-												<%= link_to completed_notice_path(notice), method: :post do %>
-													<i class="fa fa-check"></i>
-												<% end %>
-											</td>
 											<td><%= notice.event %></td>
 											<td><%= notice.event_time.to_s(:long) %></td>
 											<td><%= notice.location %></td>
 											<td><%= notice.postscript %></td>
-											<% if notice.is_completed? %>
-												<td>Completed on <%= @notice.updated_on %></td>
-											<% else %>
-												<td>
-													<%= link_to edit_notice_path(notice) do  %>
-														<i class="fa fa-pencil"></i>
-													<% end %>
-												</td>
-												<td>
-													<%= link_to notice_path(notice), method: :delete, data: {confirm: "Are you sure?"} do %> 
-														<i class="fa fa-times"></i>
-													<% end %>
-												</td>
-											<% end %>
+											<td>Completed on <%= notice.updated_on %></td>
 									</tr>
 			      		<% end %>
 								</tbody>
