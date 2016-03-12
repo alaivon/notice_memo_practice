@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 
 ruby '2.2.1'
 
-gem 'omniauth'
-gem 'omniauth-facebook'
 gem "font-awesome-rails"
 gem 'simple_form'
 gem 'awesome_rails_console'
