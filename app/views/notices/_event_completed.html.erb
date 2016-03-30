@@ -11,6 +11,7 @@
 	          		<table class="table table-bordered">
 	          			<thead>
 										<tr>
+											<th>Category</th>
 											<th>Event</th>
 											<th>When</th>
 											<th>Location</th>
@@ -21,6 +22,7 @@
 									<tbody>
 										<% @notices_done.each do |notice| %>
 										<tr>
+											<td><%= notice.category.name %></td>
 											<td><%= notice.event %></td>
 											<td><%= notice.event_time.to_s(:long) %></td>
 											<td><%= notice.location %></td>
